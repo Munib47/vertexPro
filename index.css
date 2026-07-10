@@ -1920,12 +1920,13 @@ h4 {
 }
 .cta-box h2 {
   color: #fff;
-  font-size: 44px;
+  font-size: 35px;
   font-weight: 900;
   line-height: 1.12;
   letter-spacing: -0.7px;
   margin-bottom: 16px;
   max-width: 720px;
+  text-transform: capitalize;
 }
 .cta-box h2 .cta-gold {
   background: linear-gradient(90deg, #ffd766, var(--gold));
