@@ -1503,7 +1503,7 @@ h4 {
 .marquee-right .marquee-track {
   animation: marquee-scroll-right 40s linear infinite;
 }
-.reviews-marquee:hover .marquee-track {
+.marquee-row:hover .marquee-track {
   animation-play-state: paused;
 }
 @keyframes marquee-scroll-left {
