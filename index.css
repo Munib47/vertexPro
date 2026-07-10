@@ -1097,14 +1097,14 @@ h4 {
 .brand-chip {
   flex: 0 0 auto;
   margin: 0 10px;
-  padding: 12px 22px 12px 12px;
+  padding: 16px 26px;
   border-radius: 16px;
   background: #fff;
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
-  gap: 13px;
-  min-width: 210px;
+  justify-content: center;
+  min-width: 160px;
   box-shadow: 0 4px 14px rgba(10, 31, 86, 0.05);
   transition:
     transform 0.3s,
@@ -1141,6 +1141,14 @@ h4 {
 }
 .bm-red {
   background: linear-gradient(135deg, #f0716f, #c8102e);
+}
+.brand-logo {
+  flex-shrink: 0;
+  width: auto;
+  height: 44px;
+  max-width: 130px;
+  object-fit: contain;
+  display: block;
 }
 .brand-info {
   text-align: left;
@@ -2820,13 +2828,17 @@ h4 {
     padding: 18px 20px;
   }
   .brand-chip {
-    min-width: 180px;
-    padding: 10px 16px 10px 10px;
+    min-width: 130px;
+    padding: 13px 20px;
   }
   .brand-mono {
     width: 40px;
     height: 40px;
     font-size: 15px;
+  }
+  .brand-logo {
+    height: 36px;
+    max-width: 110px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
