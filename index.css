@@ -986,7 +986,7 @@ h4 {
 .area-map img {
   width: 100%;
   border-radius: 20px;
-  box-shadow: var(--shadow-lift);
+  /* box-shadow: var(--shadow-lift); */
 }
 .map-tag {
   position: absolute;
@@ -1800,12 +1800,16 @@ h4 {
   padding: 0 0 64px;
 }
 .cta-box {
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     #0b2a74 0%,
     #081d55 55%,
     var(--navy-deep) 100%
-  );
+  ); */
+  background-image: url(images/opacity-loq.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 24px;
   color: #fff;
   position: relative;
