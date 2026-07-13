@@ -1295,10 +1295,15 @@ h4 {
   text-align: center;
 }
 .appliance-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 26px 22px;
   margin-top: 46px;
+}
+/* 4 across (gap 22px): each card = 25% minus its share of the gaps */
+.appliance-card {
+  flex: 0 1 calc(25% - 17px);
 }
 .appliance-card {
   text-align: center;
@@ -1318,6 +1323,55 @@ h4 {
   transform: translateY(-10px);
   box-shadow: var(--shadow-lift);
   border-color: rgba(37, 99, 235, 0.35);
+}
+/* Featured cards (Refrigerator + Ice Maker) span 2 columns, horizontal layout */
+.appliance-card.featured {
+  flex: 0 1 calc(50% - 11px);
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  gap: 26px;
+  padding: 26px 30px;
+}
+.appliance-card.featured.img-right {
+  flex-direction: row-reverse;
+}
+.appliance-card.featured .feat-media {
+  flex: 0 0 44%;
+  max-width: 44%;
+}
+.appliance-card.featured .thumb {
+  margin-bottom: 0;
+}
+.appliance-card.featured .feat-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.appliance-card.featured h4 {
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.08;
+  margin: 0;
+}
+.appliance-card.featured p {
+  font-size: 15px;
+  margin: 0;
+  max-width: 340px;
+}
+.appliance-card.featured .card-ctas {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 6px;
+  width: 100%;
+}
+.appliance-card.featured .card-ctas .btn {
+  min-width: 160px;
+  text-align: center;
 }
 .thumb-link {
   display: block;
@@ -2842,8 +2896,13 @@ h4 {
   .hero-title {
     font-size: 52px;
   }
-  .appliance-grid {
-    grid-template-columns: repeat(3, 1fr);
+  /* 3 across on tablet */
+  .appliance-card {
+    flex: 0 1 calc(33.333% - 15px);
+  }
+  /* Featured cards span the full width on tablet */
+  .appliance-card.featured {
+    flex: 1 1 100%;
   }
   .review-card {
     flex-basis: 82vw;
@@ -2933,7 +2992,36 @@ h4 {
     padding: 8px 13px;
   }
   .appliance-grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 16px;
+  }
+  /* 2 across on phones */
+  .appliance-card {
+    flex: 0 1 calc(50% - 8px);
+  }
+  /* Featured cards go full width and stack image over content */
+  .appliance-card.featured,
+  .appliance-card.featured.img-right {
+    flex: 1 1 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 18px;
+  }
+  .appliance-card.featured .feat-media {
+    flex: 0 0 auto;
+    width: 62%;
+    max-width: 260px;
+  }
+  .appliance-card.featured .feat-body {
+    align-items: center;
+    width: 100%;
+  }
+  .appliance-card.featured p {
+    max-width: 100%;
+  }
+  .appliance-card.featured .card-ctas {
+    align-items: center;
   }
   .appliance-card .tile {
     width: 68px;
