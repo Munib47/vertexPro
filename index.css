@@ -648,6 +648,8 @@ h4 {
 }
 .hero-actions {
   display: flex;
+  flex-direction: column;
+  width: max-content;
   gap: 14px;
   flex-wrap: wrap;
   margin-bottom: 20px;
@@ -948,8 +950,8 @@ h4 {
 .step:not(:last-child)::before {
   content: "";
   position: absolute;
-  left: 28px;
-  top: 58px;
+  left: 18px;
+  top: 25px;
   bottom: -40px;
   width: 2px;
   background: #001d55;
