@@ -549,18 +549,12 @@ h4 {
    =================================================================== */
 .hero {
   position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 720px;
   background:
-    radial-gradient(
-      1100px 500px at 82% -10%,
-      rgba(37, 99, 235, 0.12),
-      transparent 60%
-    ),
-    radial-gradient(
-      800px 400px at -5% 110%,
-      rgba(253, 185, 19, 0.1),
-      transparent 55%
-    ),
-    var(--light-blue-bg);
+    url("images/hero-section-bg.png") right top / contain no-repeat,
+    #f7f9fb;
   padding: 60px 0 72px;
   overflow: hidden;
 }
@@ -572,6 +566,7 @@ h4 {
   filter: blur(4px);
   opacity: 0.5;
   z-index: 0;
+  display: none; /* hidden: hero now uses a full-bleed photo background */
 }
 .hero::before {
   width: 240px;
@@ -596,15 +591,14 @@ h4 {
 .hero-grid {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 52px;
-  align-items: stretch;
+  display: block;
+  width: 100%;
 }
 .hero-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 600px;
 }
 
 .hero-pill {
@@ -896,6 +890,107 @@ h4 {
   animation: nudgeDown 1.6s ease-in-out infinite;
   margin-right: 5px;
   color: var(--gold);
+}
+
+/* ===================================================================
+   WHY / HOW IT WORKS (3-step process + trust panel)
+   =================================================================== */
+.why {
+  background: var(--light-blue-bg);
+  padding: 84px 0;
+}
+.why-head {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.why-title {
+  font-size: clamp(34px, 5vw, 60px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin: 16px 0 14px;
+  color: var(--text-dark);
+}
+.why-sub {
+  font-size: 17.5px;
+  font-weight: 600;
+  color: #35405c;
+  margin: 0;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 52px;
+  align-items: center;
+}
+.why-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 3-step timeline */
+.steps {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+.step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 58px;
+  bottom: -40px;
+  width: 2px;
+  background: #001d55;
+  z-index: 0;
+}
+.step-num {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(135deg, #06307f, var(--navy-mid));
+  border: 4px solid #cdd9f5;
+  box-shadow: 0 8px 20px rgba(1, 30, 90, 0.25);
+}
+.step-body h3 {
+  font-size: 21px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--text-dark);
+  margin: 8px 0 8px;
+}
+.step-body p {
+  font-size: 15.5px;
+  color: #35405c;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 430px;
+}
+/* Match the hero CTA hover + pulse animation on this section's button */
+.why-left .btn-gold {
+  align-self: flex-start;
+  animation: pulseGlow 2.6s infinite;
 }
 
 /* ===================================================================
@@ -2697,7 +2792,26 @@ h4 {
    RESPONSIVE
    =================================================================== */
 @media (max-width: 1080px) {
-  .hero-grid {
+  .hero {
+    display: block;
+    min-height: 0;
+    background:
+      radial-gradient(
+        1100px 500px at 82% -10%,
+        rgba(37, 99, 235, 0.12),
+        transparent 60%
+      ),
+      radial-gradient(
+        800px 400px at -5% 110%,
+        rgba(253, 185, 19, 0.1),
+        transparent 55%
+      ),
+      var(--light-blue-bg);
+  }
+  .hero-left {
+    max-width: none;
+  }
+  .why-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
