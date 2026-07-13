@@ -230,6 +230,7 @@ h4 {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   border: none;
   cursor: pointer;
@@ -649,7 +650,7 @@ h4 {
 .hero-actions {
   display: flex;
   flex-direction: column;
-  width: max-content;
+  width: 405px;
   gap: 14px;
   flex-wrap: wrap;
   margin-bottom: 20px;
