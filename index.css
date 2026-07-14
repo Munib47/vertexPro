@@ -552,9 +552,9 @@ h4 {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 720px;
+  min-height: min(52vw, 860px);
   background:
-    url("images/hero-section-bg.png") right top / contain no-repeat,
+    url("images/hero-section-bg.jpg") center center / cover no-repeat,
     #f7f9fb;
   padding: 60px 0 72px;
   overflow: hidden;
@@ -592,13 +592,17 @@ h4 {
 .hero-grid {
   position: relative;
   z-index: 1;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
   width: 100%;
 }
 .hero-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  row-gap: 20px;
   max-width: 600px;
 }
 
@@ -672,14 +676,17 @@ h4 {
 
 /* Hero coupon banner */
 .hero-coupon {
-  position: relative;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 20px;
   background: var(--navy-deep);
   border-radius: 20px;
   padding: 26px 30px 40px;
-  max-width: 520px;
+  max-width: 480px;
   box-shadow: var(--shadow-soft);
   animation:
     fadeInUp 0.8s 0.5s both,
@@ -2871,8 +2878,16 @@ h4 {
       ),
       var(--light-blue-bg);
   }
+  .hero-grid {
+    display: block;
+  }
   .hero-left {
     max-width: none;
+  }
+  .hero-coupon {
+    position: static;
+    margin-top: 26px;
+    max-width: 520px;
   }
   .why-grid {
     grid-template-columns: 1fr;
